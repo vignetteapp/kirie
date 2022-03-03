@@ -1,3 +1,2 @@
 # Kirie
-Simple image proxy for Vignette.
-
+Simple image proxy for Vignette
