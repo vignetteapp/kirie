@@ -6,7 +6,7 @@ export default async function middleware(req: NextRequest) {
   const width = req.nextUrl.searchParams.get('w')
 
 
-  const url = new URL(`https://${process.env.NODE_ENV=="production"?req.nextUrl.host:"vignette-web-vignette.vercel.app"}/_next/image`)
+  const url = new URL(`https://${process.env.PRODUCTION ? req.nextUrl.host : "vignette-web-vignette.vercel.app"}/_next/image`)
 
   url.searchParams.set('url',imageUrl)
   url.searchParams.set('q',quality)
