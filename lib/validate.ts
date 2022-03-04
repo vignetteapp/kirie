@@ -1,14 +1,6 @@
 import { NextApiRequest } from 'next'
 import { mediaType } from '@hapi/accept'
 
-const domains = [
-  `yuri.might-be-super.fun`,
-  `avatars.githubusercontent.com`,
-  `vignetteapp.org`,
-  `res.cloudinary.com`,
-  `user-images.githubusercontent.com`,
-]
-
 function getSupportedMimeType(options: string[], accept = ``): string {
   const mimeType = mediaType(accept, options)
   return accept.includes(mimeType) ? mimeType : ``
@@ -37,9 +29,6 @@ export const validateParams = (
 
   if (![`http:`, `https:`].includes(hrefParsed.protocol)) {
     return { errorMessage: `"url" parameter is invalid` }
-  }
-  if (!domains || !domains.includes(hrefParsed.hostname)) {
-    return { errorMessage: `"url" parameter is not allowed` }
   }
 
   if (Array.isArray(w)) {
