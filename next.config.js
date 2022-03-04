@@ -11,13 +11,4 @@ module.exports = {
       },
     ]
   },
-  images: {
-    domains: [
-      'yuri.might-be-super.fun',
-      'avatars.githubusercontent.com',
-      'vignetteapp.org',
-      'res.cloudinary.com',
-      'user-images.githubusercontent.com',
-    ],
-  },
 }
