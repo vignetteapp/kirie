@@ -109,7 +109,7 @@ export default async function handler(
       } else if (contentType === WEBP) {
         transformer.webp({ quality })
       } else if (contentType === PNG) {
-        transformer.png({ quality, progressive: true })
+        transformer.png({ quality })
       } else if (contentType === JPEG) {
         transformer.jpeg({ quality, progressive: true, optimiseScans: true })
       }
@@ -118,7 +118,8 @@ export default async function handler(
       // End sharp transformation logic
       if (optimizedBuffer) {
         res.setHeader(`cache-control`, `public,max-age=31536000,immutable`)
-        res.setHeader(`content-type`, mimeType)
+        res.setHeader(`content-type`, contentType)
+
         res.end(optimizedBuffer)
         return resolve()
       } else {

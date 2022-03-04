@@ -38,15 +38,13 @@ export const validateParams = (
   if (Array.isArray(q)) {
     return { errorMessage: `"q" parameter (quality) cannot be an array` }
   }
-  const quality = parseInt(q)
+  let quality = parseInt(q)
 
   if (isNaN(quality) || quality < 1 || quality > 100) {
-    return {
-      errorMessage: `"q" parameter (quality) must be a number between 1 and 100`,
-    }
+    quality = 85
   }
   const mimeType = getSupportedMimeType(
-    [`image/webp`, `image/avif`] || [],
+    [`image/webp`, `image/avif`, `image/png`] || [],
     req.headers[`accept`],
   )
 
