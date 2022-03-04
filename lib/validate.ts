@@ -18,7 +18,7 @@ export const validateParams = (
   req: NextApiRequest,
 ):
   | { errorMessage: string }
-  | { href: string; width: number; quality: number; mimeType: string } => {
+  | { href: string; width?: number; quality: number; mimeType: string } => {
   const { url, w, q } = req.query
   let hrefParsed: URL
   let href: string
@@ -62,12 +62,6 @@ export const validateParams = (
   )
 
   const width = parseInt(w, 10)
-
-  if (!width || isNaN(width)) {
-    return {
-      errorMessage: `"w" parameter (width) must be a number greater than 0`,
-    }
-  }
 
   return {
     href,
