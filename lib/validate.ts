@@ -20,9 +20,13 @@ export const validateParams = (
   } else if (Array.isArray(url)) {
     return { errorMessage: `"url" parameter cannot be an array` }
   }
+
   try {
     hrefParsed = new URL(url)
     href = hrefParsed.toString()
+    if (href.startsWith(`/`)) {
+      href = `https://vignetteapp.org` + href
+    }
   } catch (_error) {
     return { errorMessage: `"url" parameter is invalid` }
   }

@@ -1,0 +1,12 @@
+name = "kirie"
+type = "javascript"
+zone_id = ""
+account_id = "b7dd78d0c7a10403cbd170f71cb03574"
+route = ""
+workers_dev = true
+compatibility_date = "2022-03-05"
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "service-worker"
