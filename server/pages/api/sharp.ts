@@ -118,6 +118,8 @@ export default async function handler(
       // End sharp transformation logic
       if (optimizedBuffer) {
         res.setHeader(`cache-control`, `public,max-age=31536000,immutable`)
+        
+        res.setHeader(`vary`, `accept`)
         res.setHeader(`content-type`, contentType)
 
         res.end(optimizedBuffer)
