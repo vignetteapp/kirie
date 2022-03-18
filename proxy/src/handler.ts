@@ -9,7 +9,7 @@ export async function handleRequest(request: Request): Promise<Response> {
   accept?.includes('avif') && supports.push("avif")
   newUrl.searchParams.append('imageSupport', supports.join('-'))
 
-  if (newUrl.searchParams.get('url')?.startsWith('/_next')) {
+  if (newUrl.searchParams.get('url')?.startsWith('/')) {
     newUrl.hostname = "vignette.vercel.app"
     newUrl.pathname = newUrl.searchParams.get('url') as string
   } else {
@@ -20,6 +20,7 @@ export async function handleRequest(request: Request): Promise<Response> {
 
   const cache = caches.default;
   const newRequest = new Request(newUrl.toString(), request)
+  newRequest.headers.set('accept', request.headers.get('accept') as string)
 
   const data = await cache.match(newRequest);
 
