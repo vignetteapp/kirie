@@ -3743,11 +3743,6 @@
   "resolved" "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.3.tgz"
   "version" "1.2.3"
 
-"wrangler@^0.0.4":
-  "integrity" "sha512-X+5yKzNh2v/6qBLXGxqTvbUOtIGccwpabpK1MAUj2QVy2n1/0rPVRQCEZ9K5ENcWkEpnjdAQYfJt6Akg6Nwnow=="
-  "resolved" "https://registry.npmjs.org/wrangler/-/wrangler-0.0.4.tgz"
-  "version" "0.0.4"
-
 "wrap-ansi@^7.0.0":
   "integrity" "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q=="
   "resolved" "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
