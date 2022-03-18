@@ -16,12 +16,14 @@ export async function handleRequest(request: Request): Promise<Response> {
   const data = await cache.match(newRequest);
   
 
-  if (data){
+  if (data) {
     return data
     
   } else{
     const res = await fetch(newRequest)
-    
-   await cache.put(newRequest,res.clone() )
-  return res}
+    if (res.status == 200){
+      await cache.put(newRequest, res.clone())
+    }
+    return res
+  }
 }
